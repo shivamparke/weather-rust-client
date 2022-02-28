@@ -8,10 +8,23 @@ use serde::{Serialize, Deserialize};
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Weather {
-    main: Main,
+    pub(crate) main: Main,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Main {
-    temp: f64,
+    pub(crate) temp: f64,
 }
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct AuthModel {
+    #[serde(rename = "access-token")]
+    pub(crate) access_token: String,
+    expires: String,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct HelloModel {
+    pub(crate) greeting: String,
+}
+
